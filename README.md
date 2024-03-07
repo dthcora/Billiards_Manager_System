@@ -1,5 +1,5 @@
-# Billiards_Manager_System
-
+# Xây dựng hệ thống quản lý quán Billiards
+---
 ![Billards](https://i.pinimg.com/originals/11/d4/09/11d40933aa3119bb62445290378b8930.jpg)
 
 ## Giới thiệu đề tài:
@@ -10,28 +10,28 @@ Theo thống kê, hầu hết các quán billiards tại TP.HCM vẫn sử dụn
 Bằng cách triển khai một hệ thống quản lý quán billiards hiện đại sẽ giúp tổ chức, quản lí và vận hành quán billiards một cách hiệu quả hơn, đồng thời tối ưu hóa trải nghiệm khách hàng.
 
 ## Mục tiêu đề tài: 
-Nâng cao hiệu quả quản lý:
-Tổ chức, quản lý và vận hành quán billiards hiệu quả hơn.
-Cung cấp công cụ quản lý thông tin khách hàng, lịch đặt bàn, thu chi, theo dõi hoạt động kinh doanh.
-Giảm thiểu sai sót, tăng cường khả năng quản lý và kiểm soát.
+**Nâng cao hiệu quả quản lý:**
++ Tổ chức, quản lý và vận hành quán billiards hiệu quả hơn.
++ Cung cấp công cụ quản lý thông tin khách hàng, lịch đặt bàn, thu chi, theo dõi hoạt động kinh doanh.
++ Giảm thiểu sai sót, tăng cường khả năng quản lý và kiểm soát.
 
-Tối ưu hóa trải nghiệm khách hàng:
-Cung cấp tính năng đặt bàn trước, quản lý thành viên, theo dõi điểm thưởng, ưu đãi.
-Khách hàng dễ dàng đặt bàn, nhận ưu đãi.
-Tạo môi trường thuận lợi cho khách hàng trải nghiệm dịch vụ.
+**Tối ưu hóa trải nghiệm khách hàng:**
++ Cung cấp tính năng đặt bàn trước, quản lý thành viên, theo dõi điểm thưởng, ưu đãi.
++ Khách hàng dễ dàng đặt bàn, nhận ưu đãi.
++ Tạo môi trường thuận lợi cho khách hàng trải nghiệm dịch vụ.
 
-Tăng cường cạnh tranh và phát triển:
-Mang lại cơ hội phát triển và sự khác biệt cho quán billiards.
-Tận dụng công nghệ nâng cao trải nghiệm khách hàng, tối ưu hóa hiệu suất kinh doanh.
-Tạo điểm đặc biệt, thu hút khách hàng bằng tính năng và dịch vụ tốt hơn.
-Tạo lợi thế cạnh tranh trong thị trường.
+**Tăng cường cạnh tranh và phát triển:**
++ Mang lại cơ hội phát triển và sự khác biệt cho quán billiards.
++ Tận dụng công nghệ nâng cao trải nghiệm khách hàng, tối ưu hóa hiệu suất kinh doanh.
++ Tạo điểm đặc biệt, thu hút khách hàng bằng tính năng và dịch vụ tốt hơn.
++ Tạo lợi thế cạnh tranh trong thị trường.
 
-## Thành viên nhóm:
+## Thành viên nhóm 12:
 
 | MSSV | Họ tên | Chức vụ | Đánh giá % |
 |:---------| :-------:| :--------: | -------: |
 | 22520958 | [Nguyễn Thị Hồng Ngọc](https://github.com/hnocc) | Nhóm trưởng | 20 |
 | 22521374 | [Phạm Trần Dạ Thảo](https://github.com/dthcora) | Thành viên | 20 |
 | 22521226 | [Trần Thảo Quyên](https://github.com/wienquyenn) | Thành viên | 20 |
-| 22521606 | Nguyễn Đình Tuấn | Thành viên | 20 |
-| 22521577 | Ngô Nhựt Trường | Thành viên | 20 |
+| 22521606 | [Nguyễn Đình Tuấn](https://github.com/TunTunizComing) | Thành viên | 20 |
+| 22521577 | [Ngô Nhựt Trường](https://github.com/nhxtrxng) | Thành viên | 20 |
