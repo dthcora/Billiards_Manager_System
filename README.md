@@ -1,6 +1,6 @@
 # Billiards_Manager_System
 
-![Billards](https://i.pinimg.com/564x/16/ab/24/16ab2424c02c5301cce6d5453b9d6c90.jpg)
+![Billards](https://i.pinimg.com/originals/11/d4/09/11d40933aa3119bb62445290378b8930.jpg)
 
 ## Giới thiệu đề tài:
 Thành phố Hồ Chí Minh là trung tâm kinh tế, văn hóa và giải trí hàng đầu của Việt Nam. Với dân số đông đúc và tốc độ đô thị hóa nhanh chóng, thành phố này có một thị trường tiềm năng lớn cho ngành công nghiệp giải trí và giải trí trong nhà, bao gồm cả quán billiards. Với sự phát triển của ngành công nghiệp quán billiards tại TP.HCM, việc quản lí hiệu quả trở thành một yếu tố quan trọng để các quán billiards có thể cạnh tranh và tồn tại trong thị trường ngày càng cạnh tranh. 
@@ -28,17 +28,10 @@ Tạo lợi thế cạnh tranh trong thị trường.
 
 ## Thành viên nhóm:
 
-Nguyễn Thị Hồng Ngọc
-MSSV: 22520958_Nhóm trưởng
-
-Phạm Trần Dạ Thảo
-MSSV: 22521374
-
-Trần Thảo Quyên
-MSSV: 22521226
-
-Nguyễn Đình Tuấn
-MSSV: 22521606
-
-Ngô Nhựt Trường
-MSSV: 22521577
+| MSSV | Họ tên | Chức vụ | Đánh giá % |
+|:---------| :-------:| :--------: | -------: |
+| 22520958 | [Nguyễn Thị Hồng Ngọc](https://github.com/hnocc) | Nhóm trưởng | 20 |
+| 22521374 | [Phạm Trần Dạ Thảo](https://github.com/dthcora) | Thành viên | 20 |
+| 22521226 | [Trần Thảo Quyên](https://github.com/wienquyenn) | Thành viên | 20 |
+| 22521606 | Nguyễn Đình Tuấn | Thành viên | 20 |
+| 22521577 | Ngô Nhựt Trường | Thành viên | 20 |
