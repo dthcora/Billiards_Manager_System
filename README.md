@@ -1,5 +1,7 @@
 # Billiards_Manager_System
 
+!billiard
+
 # Giới thiệu đề tài:
 Thành phố Hồ Chí Minh là trung tâm kinh tế, văn hóa và giải trí hàng đầu của Việt Nam. Với dân số đông đúc và tốc độ đô thị hóa nhanh chóng, thành phố này có một thị trường tiềm năng lớn cho ngành công nghiệp giải trí và giải trí trong nhà, bao gồm cả quán billiards. Với sự phát triển của ngành công nghiệp quán billiards tại TP.HCM, việc quản lí hiệu quả trở thành một yếu tố quan trọng để các quán billiards có thể cạnh tranh và tồn tại trong thị trường ngày càng cạnh tranh. 
 
