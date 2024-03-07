@@ -23,3 +23,16 @@ Mang lại cơ hội phát triển và sự khác biệt cho quán billiards.
 Tận dụng công nghệ nâng cao trải nghiệm khách hàng, tối ưu hóa hiệu suất kinh doanh.
 Tạo điểm đặc biệt, thu hút khách hàng bằng tính năng và dịch vụ tốt hơn.
 Tạo lợi thế cạnh tranh trong thị trường.
+
+# Thành viên nhóm:
+![Nguyễn Thị Hồng Ngọc_Đắk Lắk_HTTT](https://github.com/dthcora/Billiards_Manager_System/issues/1)
+Nguyễn Thị Hồng Ngọc
+MSSV: 22520958_Nhóm trưởng
+Phạm Trần Dạ Thảo
+MSSV: 22521374
+Trần Thảo Quyên
+MSSV: 22521226
+Nguyễn Đình Tuấn
+MSSV: 22521606
+Ngô Nhựt Trường
+MSSV: 22521577
