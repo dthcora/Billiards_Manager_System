@@ -30,8 +30,8 @@ Bằng cách triển khai một hệ thống quản lý quán billiards hiện �
 
 | MSSV | Họ tên | Chức vụ | Đánh giá % |
 |:---------| :-------:| :--------: | -------: |
-| 22520958 | [Nguyễn Thị Hồng Ngọc](https://github.com/hnocc) | Nhóm trưởng | 20 |
-| 22521374 | [Phạm Trần Dạ Thảo](https://github.com/dthcora) | Thành viên | 20 |
-| 22521226 | [Trần Thảo Quyên](https://github.com/wienquyenn) | Thành viên | 20 |
-| 22521606 | [Nguyễn Đình Tuấn](https://github.com/TunTunizComing) | Thành viên | 20 |
-| 22521577 | [Ngô Nhựt Trường](https://github.com/nhxtrxng) | Thành viên | 20 |
+| 22520958 | [Nguyễn Thị Hồng Ngọc](https://web.facebook.com/profile.php?id=100029047596745) | Nhóm trưởng | 20 |
+| 22521374 | [Phạm Trần Dạ Thảo](https://web.facebook.com/thaopham.3128) | Thành viên | 20 |
+| 22521226 | [Trần Thảo Quyên](https://web.facebook.com/cantstopbeingloved) | Thành viên | 20 |
+| 22521606 | [Nguyễn Đình Tuấn](https://web.facebook.com/ndtuntun) | Thành viên | 20 |
+| 22521577 | [Ngô Nhựt Trường](https://web.facebook.com/totoruu1102) | Thành viên | 20 |
