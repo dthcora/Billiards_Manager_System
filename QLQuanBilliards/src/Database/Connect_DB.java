@@ -9,9 +9,9 @@ public class Connect_DB {
         Connection conn = null;
         try {
             Class.forName("oracle.jdbc.OracleDriver"); 
-            String url = "jdbc:oracle:thin:@localhost:1521:orcl21"; 
+            String url = "jdbc:oracle:thin:@localhost:1521:databaseqlbi"; 
             String uname = "system";
-            String upass = "123456";
+            String upass = "tuntun2809";
             conn = DriverManager.getConnection(url, uname, upass);
         }
         catch(ClassNotFoundException | SQLException e){

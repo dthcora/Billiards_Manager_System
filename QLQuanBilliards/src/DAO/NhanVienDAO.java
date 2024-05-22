@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.sql.*;
 
 public class NhanVienDAO {
 
@@ -16,28 +17,23 @@ public class NhanVienDAO {
         List<NhanVienModel> list = new ArrayList<>();
         try {
             Connection conn = Connect_DB.getConnection();
-            String sql = "SELECT * FROM NhanVien";
-            PreparedStatement ps = conn.prepareStatement(sql);
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM NhanVien");
             ResultSet rs = ps.executeQuery();
             
             while(rs.next()){
-                NhanVienModel nv = new NhanVienModel();
-                nv.setMaNV(rs.getString("MaNV"));
-                nv.setTenNV(rs.getString("TenNV"));
-                nv.setSdt(rs.getString("sdt"));
-                nv.setNgayVL(rs.getDate("ngayVL").toLocalDate());
-                nv.setDiachi(rs.getString("diachi"));
-                nv.setChucvu(rs.getString("chucvu"));
-                nv.setHsluong(rs.getDouble("hsluong"));
-                nv.setGiolam(rs.getDouble("giolam"));
+                NhanVienModel nv = new NhanVienModel(
+                rs.getString("MaNV"),
+                rs.getString("TenNV"),
+                rs.getString("sdt"),
+                rs.getDate("ngayVL").toLocalDate(),
+                rs.getString("diachi"),
+                rs.getString("chucvu"),
+                rs.getDouble("hsluong"),
+                rs.getDouble("giolam")
+            ); // Sử dụng constructor mới với 8 tham số
 
                 list.add(nv);
             }
-            ps.close();
-            rs.close();
-            conn.close();
-            return list;
-            
         }
         catch(SQLException e){
             e.printStackTrace();
@@ -46,9 +42,12 @@ public class NhanVienDAO {
         return list;        
     }
     public static int insertNhanVien(NhanVienModel nv) {
+               String sql = "INSERT INTO NhanVien (MaNV, TenNV, sdt, ngayVL, diachi, chucvu, hsluong, giolam) " +
+                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+        System.out.println("SQL Query: " + sql); // In câu lệnh SQL
         try {
             Connection conn = Connect_DB.getConnection();
-            String sql = "INSERT INTO NhanVien (MaNV,TenNV,sdt,ngayVL,diachi,chucvu,hsluong,giolam) VALUES (?,?,?,?,?,?,?,?)";
             PreparedStatement ps = conn.prepareStatement(sql);
             
             ps.setString(1,nv.getMaNV());
@@ -60,17 +59,14 @@ public class NhanVienDAO {
             ps.setDouble(7,nv.getHsluong());
             ps.setDouble(8,nv.getGiolam());
             
-            int check = ps.executeUpdate();
-            ps.close();
-            conn.close();
-            if(check > 0)
-                return 1;
-            
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
+            int rowsAffected = ps.executeUpdate();
+            conn.commit();
+            return rowsAffected > 0 ? 1 : 0;
+    } catch (SQLException e) {
+        e.printStackTrace();
         return 0;
     }
+}
     
     public static int deleteNhanVien(String maNV) {
         try {
@@ -112,6 +108,5 @@ public class NhanVienDAO {
             e.printStackTrace();
         }
         return 0;
-    }
-    
+    }    
 }

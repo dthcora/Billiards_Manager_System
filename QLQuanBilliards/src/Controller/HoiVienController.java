@@ -4,6 +4,7 @@ package Controller;
 
 import Model.ClassTableModel;
 import Model.HoiVienModel;
+import View.AddVIPView;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -28,6 +29,13 @@ public class HoiVienController {
     private JButton jbtAdd;
     private JTextField jtfSearch;
 
+        public void addButtonListener() {
+        jbtAdd.addActionListener(e -> {
+            AddVIPView addVIPView = new AddVIPView(); // Khởi tạo AddVIPView
+            addVIPView.setVisible(true); // Hiển thị AddVIPView
+            addVIPView.setLocationRelativeTo(null);
+        });
+    }
     
     private String[] listColumn = {"Mã Hội Viên","Họ và Tên","Số điện thoại","Ngày đăng ký","Tổng điểm","Tổng giờ chơi","Hạng"};
     
@@ -36,6 +44,7 @@ public class HoiVienController {
     public HoiVienController(JPanel jpnView, JButton jbtAdd, JTextField jtfSearch) {
         this.jpnView = jpnView;
         this.jbtAdd = jbtAdd;
+        addButtonListener();
         this.jtfSearch = jtfSearch;
         
     }

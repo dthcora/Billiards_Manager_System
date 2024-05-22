@@ -15,7 +15,16 @@ public class VIPView extends JPanel {
     private JButton jbtAdd;
     private JPanel jpnView;
     private JTextField jtfSearch;
+    public JButton getJbtAdd(){
+    return jbtAdd;
+}
+    public JPanel getJpnView() {
+    return jpnView;  
+}
 
+    public JTextField getJtfSearch(){
+    return jtfSearch;
+    }
     public VIPView() {
         this.setBackground(new Color(218, 200, 242));
 
@@ -28,6 +37,7 @@ public class VIPView extends JPanel {
         jtfSearch.setBackground(Color.WHITE);
         jtfSearch.setFont(new Font("Arial", Font.PLAIN, 12));
         
+        jpnView = new JPanel();
         jpnView.setBackground(Color.WHITE);
         
         GroupLayout jpnViewLayout = new GroupLayout(jpnView);

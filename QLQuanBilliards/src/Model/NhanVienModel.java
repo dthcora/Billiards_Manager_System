@@ -14,7 +14,20 @@ public class NhanVienModel {
     private String chucvu;
     private double hsluong;
     private double giolam;
-
+    
+    public NhanVienModel(String maNV, String tenNV, String sdt, LocalDate ngayVL, String diachi, String chucvu, double hsluong, double giolam) {
+        this.MaNV = maNV;
+        this.TenNV = tenNV;
+        this.sdt = sdt;
+        this.ngayVL = ngayVL;
+        this.diachi = diachi;
+        this.chucvu = chucvu;
+        this.hsluong = hsluong;
+        this.giolam = giolam;
+    }
+    
+    public NhanVienModel(){}; 
+    
     public String getMaNV() {
         return MaNV;
     }

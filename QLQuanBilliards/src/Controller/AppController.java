@@ -57,7 +57,6 @@ public class AppController {
             this.jlbItem = jlbItem;
         }
 
-        
         @Override
         public void mouseClicked(MouseEvent e) {
             switch(optionText){

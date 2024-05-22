@@ -3,18 +3,32 @@ package View;
 
 import Controller.NhanVienController;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle;
 
 public class StaffView extends JPanel {
+
     private JButton jbtAdd;
     private JPanel jpnView;
     private JTextField jtfSearch;
-    
+    public JButton getJbtAdd(){
+    return jbtAdd;
+}
+    public JPanel getJpnView() {
+    return jpnView;  
+}
+
+    public JTextField getJtfSearch(){
+    return jtfSearch;
+    }
+
+    private NhanVienController control;
     public StaffView() {
         this.setBackground(new Color(218, 200, 242));
         
@@ -68,7 +82,7 @@ public class StaffView extends JPanel {
                 .addContainerGap())
         );
         
-        NhanVienController control = new NhanVienController(jpnView,jbtAdd,jtfSearch);
+        control = new NhanVienController(jpnView, jbtAdd, jtfSearch); // Khởi tạo control
         control.setDatetoTable();
         
        

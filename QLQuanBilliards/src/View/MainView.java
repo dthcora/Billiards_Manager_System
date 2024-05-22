@@ -342,4 +342,6 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JPanel jpnStatistical;
     private javax.swing.JPanel jpnVIP;
     // End of variables declaration//GEN-END:variables
+
+   
 }
