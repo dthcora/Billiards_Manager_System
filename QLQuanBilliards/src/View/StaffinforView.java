@@ -2,18 +2,81 @@
 package View;
 
 import Controller.NhanVienController;
+import DAO.NhanVienDAO;
 import Model.NhanVienModel;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
 public class StaffinforView extends javax.swing.JPanel {
 
     /**
      * Creates new form StaffinforView
      */
-    public StaffinforView(NhanVienModel nv) {
+    private NhanVienController controller;
+    public StaffinforView(NhanVienModel nv, NhanVienController controller) {
+        this.controller = controller;
         initComponents();
         
         NhanVienController control = new NhanVienController(jbtLuu,jbtXoa,jtfMaNV,jtfTenNV);
         control.setView(nv);
+        
+    jtfMaNV.setText(nv.getMaNV());
+    jtfTenNV.setText(nv.getTenNV());
+    jtfSdt.setText(nv.getSdt());
+    jDateChooser1.setDate(java.sql.Date.valueOf(nv.getNgayVL())); // Hiển thị ngày vào làm
+    jTextArea1.setText(nv.getDiachi()); // Hiển thị địa chỉ
+    jTextField4.setText(nv.getChucvu()); // Hiển thị chức vụ
+    jTextField5.setText(String.valueOf(nv.getHsluong())); // Hiển thị hệ số lương (chuyển đổi double thành String)
+    
+    jbtLuu.addActionListener(e -> {
+    // Lấy thông tin nhân viên đã chỉnh sửa từ các trường nhập liệu
+    String maNV = jtfMaNV.getText();
+    String tenNV = jtfTenNV.getText();
+    String sdt = jtfSdt.getText();
+    LocalDate ngayVL = jDateChooser1.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+    String diaChi = jTextArea1.getText();
+    String chucVu = jTextField4.getText();
+    double hsLuong = Double.parseDouble(jTextField5.getText());
+
+    // Kiểm tra tính hợp lệ của dữ liệu (ví dụ: tên không được để trống, sdt phải là số, ...)
+
+    // Tạo đối tượng NhanVienModel mới với thông tin đã chỉnh sửa
+    NhanVienModel nvCapNhat = new NhanVienModel(maNV, tenNV, sdt, ngayVL, diaChi, chucVu, hsLuong, 0.0); // Giả sử giờ làm không đổi
+
+    // Gọi phương thức updateNhanVien trong NhanVienDAO để cập nhật thông tin trong cơ sở dữ liệu
+    int ketQua = NhanVienDAO.updateNhanVien(nvCapNhat);
+    if (ketQua == 1) {
+        JOptionPane.showMessageDialog(this, "Cập nhật thông tin nhân viên thành công!");
+        // Tải lại dữ liệu trên bảng StaffView (nếu cần)
+    } else {
+        JOptionPane.showMessageDialog(this, "Cập nhật thông tin nhân viên thất bại. Vui lòng kiểm tra lại.", "Lỗi", JOptionPane.ERROR_MESSAGE);
+    }
+});
+
+jbtXoa.addActionListener(e -> {
+    // Lấy mã nhân viên từ trường nhập liệu
+    String maNV = jtfMaNV.getText();
+
+    // Hiển thị hộp thoại xác nhận xóa
+    int luaChon = JOptionPane.showConfirmDialog(this, "Bạn có chắc chắn muốn xóa nhân viên này?", "Xác nhận xóa", JOptionPane.YES_NO_OPTION);
+
+    if (luaChon == JOptionPane.YES_OPTION) {
+        // Gọi phương thức deleteNhanVien trong NhanVienDAO để xóa nhân viên
+        int ketQua = NhanVienDAO.deleteNhanVien(maNV);
+        if (ketQua == 1) {
+            JOptionPane.showMessageDialog(this, "Xóa nhân viên thành công!");
+            // Đóng cửa sổ StaffinforView
+            SwingUtilities.getWindowAncestor(this).dispose(); 
+            // Tải lại dữ liệu trên bảng StaffView (nếu cần)
+        } else {
+            JOptionPane.showMessageDialog(this, "Xóa nhân viên thất bại. Vui lòng kiểm tra lại.", "Lỗi", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+});
+
+
     }
 
     /**
@@ -47,30 +110,24 @@ public class StaffinforView extends javax.swing.JPanel {
         setBackground(new java.awt.Color(218, 200, 242));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Thông tin nhân viên", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 20), new java.awt.Color(0, 0, 0))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Thông tin nhân viên", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 20))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Mã nhân viên:");
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Họ và Tên: ");
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("SĐT:");
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Địa chỉ:");
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Chức vụ:");
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Hệ số lương:");
 
         jbtXoa.setBackground(new java.awt.Color(99, 59, 178));
@@ -83,35 +140,23 @@ public class StaffinforView extends javax.swing.JPanel {
         jbtLuu.setForeground(new java.awt.Color(255, 255, 255));
         jbtLuu.setText("Lưu");
 
-        jtfMaNV.setBackground(new java.awt.Color(255, 255, 255));
         jtfMaNV.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jtfMaNV.setForeground(new java.awt.Color(255, 255, 255));
 
-        jtfTenNV.setBackground(new java.awt.Color(255, 255, 255));
         jtfTenNV.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jtfTenNV.setForeground(new java.awt.Color(0, 0, 0));
 
-        jtfSdt.setBackground(new java.awt.Color(255, 255, 255));
         jtfSdt.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jtfSdt.setForeground(new java.awt.Color(0, 0, 0));
 
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTextArea1.setBackground(new java.awt.Color(255, 255, 255));
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jTextField4.setBackground(new java.awt.Color(255, 255, 255));
         jTextField4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextField4.setForeground(new java.awt.Color(0, 0, 0));
 
-        jTextField5.setBackground(new java.awt.Color(255, 255, 255));
         jTextField5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextField5.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Ngày vào làm:");
 
         jDateChooser1.setBackground(new java.awt.Color(255, 255, 255));

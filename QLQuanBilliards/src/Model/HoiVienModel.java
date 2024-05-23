@@ -15,8 +15,6 @@ public class HoiVienModel {
     private double tonggiochoi;
     private String hang;
 
-    public HoiVienModel(){}
-
     public HoiVienModel(String MaHV, String TenHV, String sdt, LocalDate ngaydky, double tongdiem, double tonggiochoi, String hang) {
         this.MaHV = MaHV;
         this.TenHV = TenHV;
@@ -27,6 +25,7 @@ public class HoiVienModel {
         this.hang = hang;
     }
     
+    public HoiVienModel(){}; 
     
     public String getMaHV() {
         return MaHV;

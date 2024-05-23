@@ -4,6 +4,7 @@ import View.LoginView;
 import View.MainView;
 import View.StaffView; 
 import View.VIPView;
+import View.VIPin4View;
 import Controller.HoiVienController;
 import Controller.NhanVienController;  
 import View.AddVIPView;

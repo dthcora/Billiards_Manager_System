@@ -4,6 +4,7 @@ package View;
 import Controller.HoiVienController;
 import java.awt.Color;
 import java.awt.Font;
+import static java.awt.SystemColor.control;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -25,6 +26,8 @@ public class VIPView extends JPanel {
     public JTextField getJtfSearch(){
     return jtfSearch;
     }
+    
+    private HoiVienController control;
     public VIPView() {
         this.setBackground(new Color(218, 200, 242));
 
@@ -83,5 +86,7 @@ public class VIPView extends JPanel {
         HoiVienController control = new HoiVienController(jpnView,jbtAdd,jtfSearch);
         control.setDatetoTable();
     }
-    
+        public HoiVienController getControl() { // Thêm getter
+        return control;
+    }
 }

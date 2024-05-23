@@ -14,6 +14,7 @@ import java.awt.event.MouseEvent;
 import java.time.LocalDate;
 import java.util.List;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -120,31 +121,35 @@ public void setDatetoTable(){
         }
         
     });
-        table.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (e.getClickCount() == 2) {
-                    int row = table.getSelectedRow();
-                    if (row != -1) {
-                        String maNV = model.getValueAt(row, 0).toString(); // Lấy mã nhân viên
-                        
-                        // Lấy thông tin nhân viên từ cơ sở dữ liệu dựa trên mã nhân viên
-                        NhanVienModel nv = NhanVienDAO.getList().stream()
-                            .filter(nhanVien -> nhanVien.getMaNV().equals(maNV))
-                            .findFirst()
-                            .orElse(null);
+    
+ table.addMouseListener(new MouseAdapter() {
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        if (e.getClickCount() == 2 && !e.isConsumed()) {
+            e.consume(); // Prevent multiple double-click events
+            int row = table.getSelectedRow();
+            if (row >= 0) {
+                String maNV = (String) table.getValueAt(row, 0); // Get MaNV
 
-                        if (nv != null) {
-                            StaffinforView staffinforView = new StaffinforView(nv);
-                            staffinforView.setVisible(true);
-                        } else {
-                            // Xử lý trường hợp không tìm thấy nhân viên (ví dụ: thông báo lỗi)
-                            System.out.println("Không tìm thấy thông tin nhân viên.");
-                        }
-                    }
+                NhanVienModel nv = NhanVienDAO.getList().stream()
+                    .filter(nhanVien -> nhanVien.getMaNV().equals(maNV))
+                    .findFirst()
+                    .orElse(null);
+
+ if (nv != null) {
+            JFrame staffinforViewFrame = new JFrame("Thông tin nhân viên");
+            staffinforViewFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            staffinforViewFrame.getContentPane().add(new StaffinforView(nv, NhanVienController.this));
+            staffinforViewFrame.pack();
+            staffinforViewFrame.setLocationRelativeTo(null);
+            staffinforViewFrame.setVisible(true);
+        } else {
+                    System.out.println("Không tìm thấy thông tin nhân viên.");
                 }
             }
-        });
+        }
+    }
+});
     
     table.getTableHeader().setFont(new Font("Arial", Font.BOLD, 14));
     table.getTableHeader().setPreferredSize(new Dimension(100,50));

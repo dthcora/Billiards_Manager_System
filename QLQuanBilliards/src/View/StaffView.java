@@ -27,7 +27,7 @@ public class StaffView extends JPanel {
     public JTextField getJtfSearch(){
     return jtfSearch;
     }
-
+    
     private NhanVienController control;
     public StaffView() {
         this.setBackground(new Color(218, 200, 242));
@@ -84,8 +84,10 @@ public class StaffView extends JPanel {
         
         control = new NhanVienController(jpnView, jbtAdd, jtfSearch); // Khởi tạo control
         control.setDatetoTable();
-        
-       
+             
+    }
+        public NhanVienController getControl() { // Thêm getter
+        return control;
     }
     
 }
