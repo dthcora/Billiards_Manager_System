@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.sql.*;
 
 public class NhanVienDAO {
 
@@ -16,28 +17,23 @@ public class NhanVienDAO {
         List<NhanVienModel> list = new ArrayList<>();
         try {
             Connection conn = Connect_DB.getConnection();
-            String sql = "SELECT * FROM NhanVien";
-            PreparedStatement ps = conn.prepareStatement(sql);
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM NhanVien");
             ResultSet rs = ps.executeQuery();
             
             while(rs.next()){
-                NhanVienModel nv = new NhanVienModel();
-                nv.setMaNV(rs.getString("MaNV"));
-                nv.setTenNV(rs.getString("TenNV"));
-                nv.setSdt(rs.getString("sdt"));
-                nv.setNgayVL(rs.getDate("ngayVL").toLocalDate());
-                nv.setDiachi(rs.getString("diachi"));
-                nv.setChucvu(rs.getString("chucvu"));
-                nv.setHsluong(rs.getDouble("hsluong"));
-                nv.setGiolam(rs.getDouble("giolam"));
+                NhanVienModel nv = new NhanVienModel(
+                rs.getString("MaNV"),
+                rs.getString("TenNV"),
+                rs.getString("sdt"),
+                rs.getDate("ngayVL").toLocalDate(),
+                rs.getString("diachi"),
+                rs.getString("chucvu"),
+                rs.getDouble("hsluong"),
+                rs.getDouble("giolam")
+            ); 
 
                 list.add(nv);
             }
-            ps.close();
-            rs.close();
-            conn.close();
-            return list;
-            
         }
         catch(SQLException e){
             e.printStackTrace();
@@ -112,6 +108,6 @@ public class NhanVienDAO {
             e.printStackTrace();
         }
         return 0;
-    }
-    
+    }    
 }
+

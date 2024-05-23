@@ -4,6 +4,7 @@ package View;
 import Controller.HoiVienController;
 import java.awt.Color;
 import java.awt.Font;
+import static java.awt.SystemColor.control;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -15,7 +16,18 @@ public class VIPView extends JPanel {
     private JButton jbtAdd;
     private JPanel jpnView;
     private JTextField jtfSearch;
+    public JButton getJbtAdd(){
+    return jbtAdd;
+}
+    public JPanel getJpnView() {
+    return jpnView;  
+}
 
+    public JTextField getJtfSearch(){
+    return jtfSearch;
+    }
+    
+    private HoiVienController control;
     public VIPView() {
         this.setBackground(new Color(218, 200, 242));
 
@@ -28,6 +40,7 @@ public class VIPView extends JPanel {
         jtfSearch.setBackground(Color.WHITE);
         jtfSearch.setFont(new Font("Arial", Font.PLAIN, 12));
         
+        jpnView = new JPanel();
         jpnView.setBackground(Color.WHITE);
         
         GroupLayout jpnViewLayout = new GroupLayout(jpnView);
@@ -73,5 +86,7 @@ public class VIPView extends JPanel {
         HoiVienController control = new HoiVienController(jpnView,jbtAdd,jtfSearch);
         control.setDatetoTable();
     }
-    
+        public HoiVienController getControl() {
+        return control;
+    }
 }
